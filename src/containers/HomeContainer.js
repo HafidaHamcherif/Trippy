@@ -1,19 +1,36 @@
 import React from 'react';
+import Api from '../utils/Api';
+import Card from '../components/city/Card';
 
-import '../Config';
-import '../Global';
-
-
-
+const src = `http://via.placeholder.com/300x200`;
 
 class HomeContainer extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+            cities:[]
+        }
+    }
+
+    componentDidMount(){
+        console.log('componentdidmount')
+        Api.getHome()
+    }
+
     render() {
+        console.log('this.stat',this.state)
         return(
             <div
                 className='container-fluid'
                 style={{
                 fontFamily: 'Montserrat'
                 }}>
+                <Card 
+                name = "name"
+                source = {src}
+                slug = ""
+                
+                />
                 <div
                     className='row'>
                     <div

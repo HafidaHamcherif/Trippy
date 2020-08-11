@@ -1,8 +1,10 @@
 import React from 'react';
 import Api from '../utils/Api';
 import Card from '../components/city/Card';
+import Config from '../Config';
+//import Config from '../Config';
 
-const src = `http://via.placeholder.com/300x200`;
+const src = `http://via.placeholder.com/300x200`
 
 class HomeContainer extends React.Component{
     constructor(props){
@@ -13,8 +15,23 @@ class HomeContainer extends React.Component{
     }
 
     componentDidMount(){
-        console.log('componentdidmount')
+        // const url = `${Config.host}/api/home`;
+        // fetch(url)
+        //     .then(res => res.json())
+        //     .then(res => {
+        //         //console.log('res',res)
+        //         console.log('res.cities',res.cities)
+        //         const cities = res.cities
+        //         this.setState({
+        //             cities
+        //         })
+        //     });
         Api.getHome()
+            .then((cities)=>{
+                this.setState({
+                    cities
+                })
+            })
     }
 
     render() {
@@ -25,25 +42,19 @@ class HomeContainer extends React.Component{
                 style={{
                 fontFamily: 'Montserrat'
                 }}>
+                {this.state.cities.map((city)=>{
+                    return(
+                        <div key={city}>
+                            <img src = {`${Config.host}`+ city.source} alt="city"></img>
+                            <p>{city.name}</p>
+                        </div>
+                    )
+                })}
                 <Card 
-                name = "name"
-                source = {src}
-                slug = ""
-                
+                    name = ""
+                    source = {<img src = {src}></img>}
+                    slug = ""
                 />
-                <div
-                    className='row'>
-                    <div
-                        className={'col-lg-4 col-md-8 col-12'}>
-                        <p>
-                            Je vérifie que les 2 mots : Voleur et <span style={{fontFamily: 'serif' }}>Voleur</span> ont une police d'écriture différente
-                        </p>
-                    </div>
-                    <div
-                        className='col-lg-8 col-md-4 col-12'>
-                        Une autre phrase
-                    </div>
-                </div>
             </div>
         );
     }

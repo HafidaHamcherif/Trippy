@@ -1,4 +1,5 @@
 import Config from '../Config';
+//Optimisation
 
 class Api {
     getHome(){

@@ -1,8 +1,13 @@
 import React from 'react';
 import Api from '../utils/Api';
 import Card from '../components/city/Card';
+import Home from '../components/core/Home';
+import styled from 'styled-components';
 
-//const src = `http://via.placeholder.com/300x200`
+
+const Container = styled.div`
+    fontFamily: 'Montserrat'
+`;
 
 class HomeContainer extends React.Component{
     constructor(props){
@@ -35,16 +40,12 @@ class HomeContainer extends React.Component{
                 })
             })
     }
-
     render() {
-        console.log('this.stat',this.state)
+
+        //console.log('this.stat',this.state)
         return(
-            <div
-                className='container-fluid'
-                style={{
-                fontFamily: 'Montserrat'
-                }}>
-               
+            <Container
+                className = 'col-6 col-md-3 '>
                 {this.state.cities.map((city)=>{
                     return(
                         // <div >
@@ -53,14 +54,18 @@ class HomeContainer extends React.Component{
                         // </div>
                         <Card
                             key = {city.id}
-                            city = {city.name}
+                            name = {city.name}
                             source = {city.source}
                             slug = ''
+    
                         />
-                    )
+                        
+                    );
                 })}
-
-            </div>
+                <Home
+                 cities={this.state}
+                />
+            </Container>
         );
     }
 }

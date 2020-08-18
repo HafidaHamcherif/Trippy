@@ -10,7 +10,7 @@ class Api {
         .then(res => res.json())
         .then(res => {
             //console.log('res',res)
-            console.log('res.cities',res.cities)
+            //console.log('res.cities',res.cities)
             const cities =  res.cities
             return cities
         });

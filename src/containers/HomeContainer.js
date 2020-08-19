@@ -44,8 +44,7 @@ class HomeContainer extends React.Component{
 
         //console.log('this.stat',this.state)
         return(
-            <Container
-                className = 'col-6 col-md-3 '>
+            <Container className = 'col-6 col-md-3 '>
                 {this.state.cities.map((city)=>{
                     return(
                         // <div >
@@ -56,14 +55,13 @@ class HomeContainer extends React.Component{
                             key = {city.id}
                             name = {city.name}
                             source = {city.source}
-                            slug = ''
-    
+                            slug = {city.slug}
                         />
                         
                     );
                 })}
                 <Home
-                 cities={this.state}
+                    cities={this.state.cities}
                 />
             </Container>
         );

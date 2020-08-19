@@ -34,6 +34,13 @@ class App extends React.Component{
         <Switch>
           <Route path="/Hotels/">
             <Hotels />
+            <ul>
+              <li><Link to="/hotelparis/">/hotels?city=Paris</Link></li>
+              <li><Link to="/hotelRome/">/hotels?city=Rome</Link></li>
+              <li><Link to="/hotelNice/">/hotels?city=Nice</Link></li>
+              <li><Link to="/hotelNewYork/">/hotels?city=NewYork</Link></li>
+              <li><Link to="/hotelLondres/">/hotels?city=Londres</Link></li>
+            </ul>
           </Route>
           <Route path="/Login/">
             <Login />

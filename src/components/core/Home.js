@@ -1,16 +1,18 @@
 import React from 'react';
-import Card from '../city/Card';
-
 
 class Home extends React.Component{
-
+    
     render() {
-        console.log(this.props.cities)
+        const {
+            cities
+        } =this.props
+        console.log(cities)
+        // if(this.props.cities.length > 0){
+            
+        // }
         return(
             <div>
-                <Card
-                    cities = {this.props.cities}
-                />
+               
             </div>
 
         );
